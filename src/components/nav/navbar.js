@@ -16,7 +16,7 @@ const NavBar = () => {
       try {
         const { email } = await magic.user.getMetadata()
         const didToken = await magic.user.getIdToken()
-        console.log({didToken})
+
         if (email) {
           setUsername(email)
         }
@@ -43,7 +43,7 @@ const NavBar = () => {
   }
 
   const handleSignOut = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
 
     try {
       const response = await fetch("/api/logout", {
@@ -52,14 +52,14 @@ const NavBar = () => {
           Authorization: `Bearer ${didToken}`,
           "Content-Type": "application/json",
         },
-      });
+      })
 
-      const res = await response.json();
+      const res = await response.json()
     } catch (error) {
-      console.error("Error logging out", error);
-      router.push("/login");
+      console.error("Error logging out", error)
+      router.push("/login")
     }
-  };
+  }
 
   return (
     <div className={styles.container}>

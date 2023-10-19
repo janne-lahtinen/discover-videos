@@ -6,10 +6,10 @@ import NavBar from '@/components/nav/navbar'
 import SectionCards from '@/components/card/section-cards'
 import { getVideos, getPopularVideos, getWatchItAgainVideos } from '../../lib/videos'
 import { verifyToken } from '../../lib/utils'
-import useRedirectUser from '@/utils/redirectUser'
+import { redirectUser } from '@/utils/redirectUser'
 
 export async function getServerSideProps(context) {
-  const {userId, token} = await useRedirectUser(context)
+  const {userId, token} = await redirectUser(context)
 
   const watchItAgainVideos = await getWatchItAgainVideos(userId, token)
   const disneyVideos = await getVideos('disney trailer')

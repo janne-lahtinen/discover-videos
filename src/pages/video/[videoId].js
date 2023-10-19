@@ -58,7 +58,7 @@ const Video = ({video}) => {
     }
     // Call named function
     getFavourited()
-  }, [])
+  }, [videoId])
 
   const handleToggleLike = async () => {
     const value = !toggleLike

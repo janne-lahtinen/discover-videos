@@ -1,12 +1,12 @@
 import NavBar from "@/components/nav/navbar"
 import Head from "next/head"
 import SectionCards from "@/components/card/section-cards"
-import useRedirectUser from '@/utils/redirectUser'
+import { redirectUser } from '@/utils/redirectUser'
 import styles from '../../styles/MyList.module.css'
 import { getMyListPageVideos } from '../../../lib/videos'
 
 export async function getServerSideProps(context) {
-  const {userId, token} = await useRedirectUser(context)
+  const {userId, token} = await redirectUser(context)
 
   const myListVideos = await getMyListPageVideos(userId, token)
 
